@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col">
+        <h2>{{titulo}}</h2>
+        <hr/>
+        <form class="form-group row">
+            <div class="form-group col-md-2">
+                <input type="text" name="dni" id="dni" placeholder="DNI" class="form-control" [(ngModel)]="persona.dni"/>
+            </div>
+            <div class="form-group col-md-2">
+                <input type="text" name="nombres" id="nombres" placeholder="Mombres" class="form-control" [(ngModel)]="persona.nombres"/>
+            </div>
+            <div class="form-group col-md-2">
+                <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control" [(ngModel)]="persona.apellidos"/>
+    
+            </div>
+            <div class="form-group col-md-2">
+                <button type="submit" class="btn btn-primary" (click)="agregarPersona()">Agregar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr/>
+
+<table class="table table-bordered">
+    <tr *ngFor="let persona of personas">
+        <td>{{persona.dni}}</td>
+        <td>{{persona.nombres}}</td>
+        <td>{{persona.apellidos}}</td>
+    </tr>
+</table>

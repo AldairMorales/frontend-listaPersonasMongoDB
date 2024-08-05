@@ -1,0 +1,15 @@
+<!-- Revisar formulario2-persona-binding.component -->
+<form class="form-group row">
+    <div class="form-group col-md-2">
+        <input type="text" name="dni" id="dni" placeholder="DNI" class="form-control" #dniInput />
+    </div>
+    <div class="form-group col-md-2">
+        <input type="text" name="nombres" id="nombres" placeholder="Nombres" class="form-control" #nombresInput />
+    </div>
+    <div class="form-group col-md-2">
+        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control" #apellidosInput />
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-primary" (click)="agregarPersona(dniInput, nombresInput, apellidosInput)">Agregar</button>
+    </div>
+</form>

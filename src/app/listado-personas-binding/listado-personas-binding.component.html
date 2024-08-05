@@ -1,0 +1,66 @@
+
+<h2>Crear una Persona</h2>
+
+<form #personForm="ngForm" class="field grid" >
+  <div class="field col">
+    <label>Dni:</label>
+    <input type="text" name="dni" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"  [(ngModel)]="newPersona.dni" required>
+  </div>
+
+  <div class="field col">
+    <label>Nombres:</label>
+    <input type="text" name="nombres" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"  [(ngModel)]="newPersona.nombres" required>
+  </div>
+
+  <div class="field col">
+    <label>Apellidos:</label>
+    <input type="text" name="apellidos" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [(ngModel)]="newPersona.apellidos" required>
+  </div>
+  
+  <div class="field col">
+    <button type="submit" pButton pRipple class="p-button-success" (click)="createPerson(personForm)">Crear Persona</button>
+  </div>
+
+</form>
+
+<div class="surface-overlay border-round border-1 my-3 p-3">
+  <h2>Lista de Personas</h2>
+  <ul class="list-decimal">
+    <li *ngFor="let person of personas">
+      <div class="field col">
+        {{ person.dni }} - {{ person.nombres }} - {{ person.apellidos }}
+        <button pButton pRipple class="p-button-warning"   (click)="setEditingPerson(person)">Editar</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="editarPersona">
+  <h3>Editando {{ editarPersona.nombres }}</h3>
+
+  <form #editForm="ngForm" class="field grid">
+    <div class="field col">
+      <label>Nombres:</label>
+      <input type="text" name="name" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [(ngModel)]="editarPersona.nombres" required>
+    </div>
+
+    <div class="field col">
+      <label>Apellidos:</label>
+      <input type="text" name="apellidos" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [(ngModel)]="editarPersona.apellidos" required>
+    </div>
+
+    <div class="field col">
+      <label>DNI:</label>
+      <input type="text" name="dni" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" [(ngModel)]="editarPersona.dni" required>
+    </div>
+
+    <div class="field col">
+      <button pButton pRipple class="p-button-primary" (click)="updatePerson()">Guardar Cambios</button>
+    </div>
+
+    <div class="field col">
+      <button pButton pRipple class="p-button-danger" (click)="cancelEditing()">Cancelar</button>
+    </div>
+  </form>
+</div>
+

@@ -1,0 +1,29 @@
+<h2>Tabla de Registro de personas --- Laboratorio 4</h2>
+
+<button class="btn btn-primary" [disabled]="flagDisabled" (click)="agregarPersona()" >Agregar Persona</button>
+<p *ngIf="mostrarMensaje; else plantillaSinPersona">{{mensaje}}</p>
+<ng-template #plantillaSinPersona>
+    <p>Plantilla de condicion "else"</p>
+    <p>No hay persona agregada</p>
+</ng-template>
+<p>--------------------</p>
+<label>Profesion:</label>
+<input type="text" class="form-control" (input)="setProfesion($event)">
+<p>--------------------</p>
+<p>La profesion ingresada {{this.profesion}}</p>
+<p>--------------------</p>
+<label>Direccion:</label>
+<input type="text" class="form-control" [(ngModel)]="direccion" />
+<p>--------------------</p>
+<p>La direccion ingresada {{this.direccion}}</p>
+<p>--------------------</p>
+<p>La profesion ingresada {{this.profesion}}</p>
+<p>--------------------</p>
+<table class="table table-bordered table-hover">
+    <tr *ngFor="let regPer of personaList">
+        <td>{{regPer.dni}}</td>
+        <td>{{regPer.nombres}}</td>
+        <td>{{regPer.apellidos}}</td>
+    </tr>
+
+</table>
